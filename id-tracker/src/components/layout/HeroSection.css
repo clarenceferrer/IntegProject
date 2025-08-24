@@ -63,6 +63,7 @@
   align-items: center;        /* vertical center */
   justify-content: center;    /* horizontal center */
   gap: 8px; 
+  outline: none;              /* remove focus outline */
 }
 
 .arrow{
@@ -71,6 +72,16 @@
 
 .get-started:hover {
   background: #0056b3;
+}
+
+.get-started:focus {
+  outline: none;              /* remove focus outline */
+  border: none;               /* remove any border */
+}
+
+.get-started:active {
+  outline: none;              /* remove outline when clicked */
+  border: none;               /* remove any border */
 }
 
 /* Responsive design */

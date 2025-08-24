@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import ForgotPassword from "./ForgotPassword";
 
 export default function LoginModal({ isOpen, onClose }) {
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+
   if (!isOpen) return null;
+
+  const handleForgotPasswordClick = (e) => {
+    e.preventDefault();
+    setShowForgotPassword(true);
+  };
+
+  const handleForgotPasswordClose = () => {
+    setShowForgotPassword(false);
+  };
+
+  const handleBackToLogin = () => {
+    setShowForgotPassword(false);
+  };
 
   return (
     <>
@@ -37,8 +53,8 @@ export default function LoginModal({ isOpen, onClose }) {
             margin: 0 0 25px;
             color: #333;
             font-size: 32px;
-            text-align: left;
-            font-weight: 600;
+            text-align: center;
+            font-weight: bold;
           }
 
           .modal .input-group {
@@ -49,7 +65,7 @@ export default function LoginModal({ isOpen, onClose }) {
             display: block;
             margin-bottom: 6px;
             color: #333;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 600;
             text-align: left;
           }
@@ -88,11 +104,12 @@ export default function LoginModal({ isOpen, onClose }) {
           }
 
           .modal .forgot-password a {
-            font-size: 15px;
+            font-size: 16px;
             color: #2563eb;
             text-decoration: none;
             transition: color 0.3s ease;
             font-weight: 500;
+            cursor: pointer;
           }
 
           .modal .forgot-password a:hover {
@@ -108,10 +125,10 @@ export default function LoginModal({ isOpen, onClose }) {
             color: #fff;
             font-size: 18px;
             font-weight: 600;
-            border-radius: 25px;
+            border-radius: 50px;
             cursor: pointer;
             margin-top: 0;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;;
           }
 
           .modal button:hover {
@@ -168,6 +185,17 @@ export default function LoginModal({ isOpen, onClose }) {
             transform: scale(1.1);
           }
 
+          .modal button:focus,
+          .modal .google-btn:focus {
+            outline: none;      
+          }
+
+          .modal button:active,
+          .modal .google-btn:active {
+            transform: scale(0.98); 
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2) inset; 
+          }
+
           .modal .divider {
             text-align: center;
             margin: 20px 0;
@@ -196,42 +224,51 @@ export default function LoginModal({ isOpen, onClose }) {
         `}
       </style>
       
-      <div className="overlay" onClick={onClose}>
-        <div className="modal" onClick={(e) => e.stopPropagation()}>
-          <span className="close-btn" onClick={onClose}>&times;</span>
-          <h2>Login</h2>
-          
-          <div className="input-group">
-            <label htmlFor="email">Email Address</label>
-            <input type="email" id="email" placeholder="Enter your email address" />
-          </div>
-          
-          <div className="input-group">
-            <label htmlFor="studentNumber">Student Number</label>
-            <input type="text" id="studentNumber" placeholder="Enter your student number" />
-          </div>
-          
-          <div className="input-group">
-            <label htmlFor="password">Password</label>
-            <div className="password-wrapper">
-              <input type="password" id="password" placeholder="Enter your password" />
+      {/* Only show login modal when forgot password is not open */}
+      {!showForgotPassword && (
+        <div className="overlay" onClick={onClose}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <span className="close-btn" onClick={onClose}>&times;</span>
+            <h2>Login</h2>
+            
+            <div className="input-group">
+              <label htmlFor="email">Email Address</label>
+              <input type="email" id="email" placeholder="Enter your email address" />
             </div>
+            
+            <div className="input-group">
+              <label htmlFor="studentNumber">Student Number</label>
+              <input type="text" id="studentNumber" placeholder="Enter your student number" />
+            </div>
+            
+            <div className="input-group">
+              <label htmlFor="password">Password</label>
+              <div className="password-wrapper">
+                <input type="password" id="password" placeholder="Enter your password" />
+              </div>
+            </div>
+            
+            <div className="forgot-password">
+              <a onClick={handleForgotPasswordClick}>Forgot your password?</a>
+            </div>
+            
+            <button>Log In</button>
+            <div className="divider">
+              <span>or</span>
+            </div>
+            <button className="google-btn">
+              <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" />
+              Sign In with Google
+            </button>
           </div>
-          
-          <div className="forgot-password">
-            <a href="#">Forgot your password?</a>
-          </div>
-          
-          <button>Log In</button>
-          <div className="divider">
-            <span>or</span>
-          </div>
-          <button className="google-btn">
-            <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" />
-            Sign In with Google
-          </button>
         </div>
-      </div>
+      )}
+
+      <ForgotPassword 
+        isOpen={showForgotPassword} 
+        onClose={handleForgotPasswordClose} 
+        onBackToLogin={handleBackToLogin}
+      />
     </>
   );
 }

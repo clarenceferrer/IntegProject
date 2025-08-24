@@ -67,6 +67,17 @@
   color: #1d4ed8;
   font-weight: bold;
   cursor: pointer;
+  outline: none;              /* remove focus outline */
+}
+
+.login-btn:focus {
+  outline: none;              /* remove focus outline */
+  border: none;               /* remove any border */
+}
+
+.login-btn:active {
+  outline: none;              /* remove outline when clicked */
+  border: none;               /* remove any border */
 }
 
 .profile-icon {

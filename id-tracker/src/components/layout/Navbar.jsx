@@ -1,14 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Navbar.css";
 import nulogo from "../../assets/nulogo.png";
 import LoginModal from "../ui/LoginModal";
 
-export default function Navbar() {
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-
-  const openLoginModal = () => setIsLoginModalOpen(true);
-  const closeLoginModal = () => setIsLoginModalOpen(false);
-
+export default function Navbar({ openLoginModal }) {
   return (
     <>
       <nav className="navbar">
@@ -27,8 +22,6 @@ export default function Navbar() {
           <div className="profile-icon">👤</div>
         </div>
       </nav>
-
-      <LoginModal isOpen={isLoginModalOpen} onClose={closeLoginModal} />
     </>
   );
 }

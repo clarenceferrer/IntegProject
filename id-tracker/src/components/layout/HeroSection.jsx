@@ -3,7 +3,7 @@ import "./HeroSection.css";
 import heroID from "../../assets/landingbackground.png";
 import { FiArrowUpRight } from "react-icons/fi"; // northeast arrow
 
-export default function HeroSection() {
+export default function HeroSection({ openLoginModal }) {
   return (
     <section
       className="hero-section"
@@ -19,7 +19,7 @@ export default function HeroSection() {
         <p className="subtitle">
           Manage your student ID appointment<br /> with ease
         </p>
-        <button className="get-started">
+        <button className="get-started" onClick={openLoginModal}>
           Get Started <FiArrowUpRight className="arrow" />
         </button>
       </div>
