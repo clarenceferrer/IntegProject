@@ -1,0 +1,60 @@
+.synch {
+  background-color: #2849D0; /* NU Blue */
+  color: white;
+  width: 100%;             /* make it responsive */
+  height: 536px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.synch-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1600px;
+  width: 100%;
+  gap: 130px;
+}
+
+.synch-logo {
+  width: 250px;
+  height: auto;
+}
+
+.synch-text {
+  max-width: 375.18px;        /* give more breathing room */
+  text-align: left;
+}
+
+.synch-heading {
+  display: flex;
+  align-items: center;
+  gap: 20px;               /* spacing between icon and text */
+  margin-bottom: 20px;
+}
+
+.synch-heading h2 {
+  font-size: 32px;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.synch-text p {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.synch-divider {
+  width: 2px;
+  height: 400px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.chain-icon {
+  color: white;   /* match h2 color */
+  font-size: 40px; /* scaled properly with text */
+  flex-shrink: 0; /* prevent icon from resizing */
+}
+
+

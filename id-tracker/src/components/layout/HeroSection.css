@@ -1,0 +1,126 @@
+.hero-section {
+  height: 100vh; /* full viewport height */
+  width: 100%; /* full width without causing horizontal scroll */
+  background-size: cover; /* cover the whole section */
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: flex-end; /* text moves to the right */
+  align-items: center;       /* vertically center text */
+  padding: 50px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.hero-right {
+  max-width: 550px;
+  text-align: left;
+  padding: 270px;
+  padding-top: 390px;
+  border-radius: 50px;
+  z-index: 2;
+  position: relative;
+}
+
+/* Headings */
+.hero-right h1 {
+  margin: 0px 0;       /* squeeze headings closer */
+  line-height: 1.6;    /* tighter spacing inside text */
+}
+
+/* Title colors + sizing */
+.blue-text {
+  color: #2849D0;
+  font-size: 170px;     /* adjusted for balance */
+}
+
+.yellow-text {
+  font-size: 60px;     /* closer to blue-text size */
+  color: #fff;
+}
+
+/* Subtitle */
+.hero-right .subtitle {
+  margin: 0px 0 0;     /* small gap under heading */
+  font-size: 24px;
+  font-family: Montserrat;
+  color: #ffff;         /* softer look */
+}
+
+/* Button */
+.get-started {
+  margin-top: 12px;    /* spacing from subtitle */
+  padding: 10px 25px;
+  background: #2849D0;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;              /* enable flexbox */
+  align-items: center;        /* vertical center */
+  justify-content: center;    /* horizontal center */
+  gap: 8px; 
+}
+
+.arrow{
+  font-size: 35px;
+}
+
+.get-started:hover {
+  background: #0056b3;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 20px;
+    justify-content: center;
+  }
+  
+  .hero-right {
+    padding: 50px;
+    padding-top: 100px;
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .blue-text {
+    font-size: 80px;
+  }
+  
+  .yellow-text {
+    font-size: 40px;
+  }
+  
+  .hero-right .subtitle {
+    font-size: 18px;
+  }
+  
+  .get-started {
+    font-size: 18px;
+    padding: 8px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-right {
+    padding: 30px;
+    padding-top: 80px;
+  }
+  
+  .blue-text {
+    font-size: 60px;
+  }
+  
+  .yellow-text {
+    font-size: 30px;
+  }
+  
+  .hero-right .subtitle {
+    font-size: 16px;
+  }
+}
+

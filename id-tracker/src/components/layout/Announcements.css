@@ -1,0 +1,66 @@
+.announcements {
+  position: relative;
+  width: 100%;
+  height: 500px; /* adjust depending on your image height */
+  overflow: hidden;
+}
+
+.announcements-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* makes image stretch without distortion */
+  display: block;
+}
+
+/* Overlay to place text and mic on top */
+.announcements-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  color: white;
+}
+
+/* Title */
+.announcements-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1d4ed8; /* blue text */
+  margin-bottom: 20px;
+}
+
+/* Flex layout for mic + text */
+.announcements-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.icon img {
+  width: 80px;
+  height: auto;
+}
+
+.text {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.text p {
+  margin: 8px 0;
+}
+
+.new {
+  color: #facc15; /* yellow */
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.bold {
+  font-weight: bold;
+}
