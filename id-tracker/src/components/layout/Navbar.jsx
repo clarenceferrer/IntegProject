@@ -2,6 +2,7 @@ import React from "react";
 import "./Navbar.css";
 import nulogo from "../../assets/nulogo.png";
 import LoginModal from "../ui/LoginModal";
+import { Link } from "react-router-dom";
 
 export default function Navbar({ openLoginModal }) {
   return (
@@ -15,8 +16,8 @@ export default function Navbar({ openLoginModal }) {
         </div>
 
         <div className="navbar-links">
-          <a href="#" className="active">Home</a>
-          <a href="#">Calendar</a>
+          <Link to="/" className="active">Home</Link>
+          <Link to="/appointment">Appointment</Link>
           <a href="#">About us</a>
           <button className="login-btn" onClick={openLoginModal}>Log In</button>
           <div className="profile-icon">👤</div>

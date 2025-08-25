@@ -1,0 +1,234 @@
+.appointment-page {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f8fc;
+  color: #333;
+  height: 100dvh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px; /* account for fixed navbar height */
+  overflow: hidden; /* keep background fixed to viewport; scroll inside content */
+}
+
+.appointment-page .page-content {
+  flex: 1;
+  padding: 0; /* remove padding so footer doesn't inherit */
+  min-height: 0; /* allow inner scroll without growing parent */
+  overflow: auto; /* scroll page content instead of resizing page */
+  display: flex;
+  flex-direction: column;
+}
+
+.appointment-page .page-inner {
+  padding: 40px; /* move inner padding here so footer sits flush */
+}
+
+.appointment-page h2 {
+  margin: 10px;
+  text-align: left;
+  font-size: 35px;
+}
+
+.appointment-page .container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex: 1; /* take remaining space so footer sits at bottom when content is short */
+  min-height: 0; /* prevent overflow issues in flex column */
+}
+
+/* Calendar box */
+.appointment-page .calendar-container {
+  flex: 2;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  height: 725px;
+  width: 100px;
+}
+
+.appointment-page .calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2f54eb;
+  color: white;
+  padding: 12px 20px;
+  font-weight: bold;
+  font-size: 38px;
+}
+
+.appointment-page .calendar-header span {
+  cursor: pointer;
+  font-size: 24px;
+  user-select: none;
+}
+
+.appointment-page .calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-top: 1px solid #ddd;
+}
+
+.appointment-page .day {
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+  font-size: 14px;
+  min-height: 60px;
+  color: #333;
+}
+
+.appointment-page .day.header {
+  font-weight: bold;
+  background: #f4f6fb;
+}
+
+.appointment-page .day.today {
+  border-radius: 50%;
+  background: #2f54eb;
+  color: white;
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Selected day styling */
+.appointment-page .day .selected {
+  border-radius: 50%;
+  background: #2563eb;
+  color: #fff;
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Login box */
+.appointment-page .login-box {
+  flex: 0 0 auto; /* don't stretch; allow explicit width to apply */
+  background: #fff;
+  height: 350px;
+  width: 560px;
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box; /* width includes padding */
+  min-width: 0; /* allow children to overflow rather than force widening */
+}
+
+.appointment-page .login-box h3 {
+  margin: 0 0 25px;
+  color: #333;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.appointment-page .login-btn {
+  width: 100%;
+  background: #2563eb;
+  border: none;
+  padding: 18px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 0;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.appointment-page .login-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.appointment-page .google-btn {
+  background: #fff;
+  border: 2px solid #e1e5e9;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+}
+
+.appointment-page .google-btn:hover {
+  background: #f8f9fa;
+  border-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-page .google-btn img {
+  width: 24px;
+  margin-right: 12px;
+}
+
+.appointment-page .google-btn:focus {
+  outline: none;      
+}
+
+.appointment-page .google-btn:active {
+  transform: scale(0.98); 
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2) inset; 
+}
+
+.appointment-page .signup {
+  font-size: 14px;
+  color: #666;
+}
+
+.appointment-page .signup a {
+  color: #2f54eb;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Divider to mirror modal */
+.appointment-page .divider {
+  text-align: center;
+  margin: 20px 0;
+  color: #6c757d;
+  font-size: 16px;
+  position: relative;
+  width: 100%;
+}
+
+.appointment-page .divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #e1e5e9;
+  z-index: 1;
+}
+
+.appointment-page .divider span {
+  background: #fff;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
